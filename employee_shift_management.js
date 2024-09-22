@@ -60,3 +60,24 @@ function calculateTotalHours(workerName) {
 
 // Calculate total hours worked for Leala
 calculateTotalHours('Leala');
+
+//Task 5- Create a Function to List Employees with Free Days
+function listAvailableEmployees(day) {
+    console.log("Employees available on " + day + ":");
+
+    employees.forEach(function(worker) {
+        let hasShift = worker.shifts.some(function(shift) {
+            return shift.day === day;
+        });
+
+        if (!hasShift) {
+            console.log(worker.name + " is available on " + day);
+        }
+    });
+}
+// List employees who are free on all weekdays
+listAvailableEmployees('Monday');
+listAvailableEmployees('Tuesday');
+listAvailableEmployees('Wednesday');
+listAvailableEmployees('Thursday');
+listAvailableEmployees('Friday');
